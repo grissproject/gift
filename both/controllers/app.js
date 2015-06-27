@@ -10,3 +10,12 @@ RequestsController = AppController.extend({
     requests: Requests.find({})
   }
 });
+
+ProvidersController = AppController.extend({
+  waitOn: function() {
+    return this.subscribe('providers');
+  },
+  data: {
+    providers: Providers.find({})
+  }
+});

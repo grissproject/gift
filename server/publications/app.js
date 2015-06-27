@@ -5,3 +5,11 @@ Meteor.publishComposite("requests", function() {
     }
   }
 });
+
+Meteor.publishComposite("providers", function() {
+  return {
+    find: function() {
+      return Providers.find({});
+    }
+  }
+});
