@@ -1,0 +1,125 @@
+<template name="newProvider">
+  <form>
+    <div class="basic">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="location" name="locations" type="text" class="" placeholder="">
+          <label for="location">Location</label>
+        </div>
+        <div class="col s12" id="gmap"></div>
+      </div>
+
+      <div class="navfooter">
+        <a onclick="goNext('basic', 'notifications');" class="waves-effect waves-light btn right">Next <i class="fa fa-angle-right"></i></a>
+      </div>
+    </div>
+
+    <div class="when">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="from" name="from" type="date" placeholder="">
+          <label for="from">From</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="to" name="to" type="text" class="datepicker" placeholder="">
+          <label for="to">To</label>
+        </div>
+
+        <div class="input-field col s6">
+          <select id="adults" name="adults">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+          <label for="adults">Adults</label>
+        </div>
+
+        <div class="input-field col s6">
+          <select id="childs" name="childs">
+            <option value="0" selected>0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <label for="childs">Childs</label>
+        </div>
+
+        <div class="col s12">
+          <div class="input-field col s6">
+          <input id="budget_from" name="budget_from" type="number" value="800" class="active">
+          <label for="budget_from" class="active">From</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="budget_to" name="budget_to" type="number" value="1000" class="active">
+          <label for="budget_to" class="active">To</label>
+        </div>
+        </div>
+      </div>
+
+      <div class="navfooter">
+        <a onclick="goPrev('when', 'where');" class="waves-effect waves-light btn left"><i class="fa fa-angle-left"></i> Prev</a>
+        <a onclick="goNext('when', 'what');" class="waves-effect waves-light btn right">Next <i class="fa fa-angle-right"></i></a>
+      </div>
+    </div>
+
+    <div class="what">
+      <div class="row">
+        <div class="input-field col s12">
+          <p>
+            <input type="checkbox" id="w_flight" name="what[]" value="Flight" />
+            <label for="w_flight">Flight</label>
+          </p>
+          <p>
+            <input type="checkbox" id="w_hotel" name="what[]" checked="checked" value="Hotel" />
+            <label for="w_hotel">Hotel</label>
+          </p>
+          <p>
+            <input type="checkbox" id="w_transfer" name="what[]" checked="checked" value="Transfer" />
+            <label for="w_transfer" >Transfer</label>
+          </p>
+          <p>
+            <input type="checkbox" id="w_excursions" name="what[]" checked="checked" value="Excursions" />
+            <label for="w_excursions" >Excursions</label>
+          </p>
+        </div>
+      </div>
+
+      <div class="navfooter">
+        <a onclick="goPrev('what', 'when');" class="waves-effect waves-light btn left"><i class="fa fa-angle-left"></i> Prev</a>
+        <a onclick="goNext('what', 'resume');" class="waves-effect waves-light btn right">Next <i class="fa fa-angle-right"></i></a>
+      </div>
+    </div>
+
+    <div class="resume">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">You are almost done!</span>
+          <p>
+            <span class="title">Location:</span> <span id="location_str"></span> <br />
+            <span class="title">From:</span> <span id="from_str"></span> &nbsp; / &nbsp; 
+            <span class="title">To:</span> <span id="to_str"></span> <br />
+            <span class="title">Adults:</span> <span id="adults_str"></span> &nbsp; / &nbsp;  
+            <span class="title">Childs:</span> <span id="childs_str"></span> <br />
+            <span class="title">Budget from:</span> <span id="budget_from_str"></span> &nbsp; / &nbsp;  
+            <span class="title">to:</span> <span id="budget_to_str"></span> <br /> 
+            <span class="title">Services:</span> <span id="services_str"></span> <br />
+          </p>
+        </div>
+      </div>
+
+      <button id="confirm" class="waves-effect waves-light btn">Confirm and send request</button>
+
+      <div class="navfooter">
+        <a onclick="goPrev('resume', 'what');" class="waves-effect waves-light btn left"><i class="fa fa-angle-left"></i> Prev</a>
+      </div>
+    </div>
+  </form>
+</template>

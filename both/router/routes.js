@@ -3,7 +3,8 @@ Router.route('/', {
 });
 
 Router.route('/dashboard', {
-  name: 'dashboard'
+  name: 'dashboard',
+  controller: 'DashboardController'
 });
 
 Router.route('/items/new', {
@@ -12,4 +13,9 @@ Router.route('/items/new', {
 
 Router.plugin('ensureSignedIn', {
   only: ['dashboard']
+});
+
+Router.route('requests/new', {
+  name: 'newRequest',
+  controller: 'RequestsController'
 });
