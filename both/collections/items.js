@@ -6,6 +6,8 @@ Items.helpers({
 
 Items.before.insert(function (userId, doc) {
   doc.createdAt = moment().toDate();
+  doc.owner = Meteor.userId();
+  doc.username = Meteor.user().username;
 });
 
 Items.attachSchema(new SimpleSchema({

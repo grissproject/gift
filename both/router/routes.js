@@ -12,12 +12,18 @@ Router.route('/items/new', {
 });
 
 Router.plugin('ensureSignedIn', {
-  only: ['dashboard']
+  only: ['dashboard', 'newRequest', 'newProvider']
 });
 
 Router.route('requests/new', {
   name: 'newRequest',
   controller: 'RequestsController'
+});
+
+Router.route('requests/show/:_id', {
+  name: 'showRequest',
+  controller: 'ShowRequestsController',
+  data: function() { return Requests.findOne({_id: this.params._id}) }
 });
 
 Router.route('providers/new', {

@@ -19,7 +19,6 @@ cunneen:mailgun
 iron:router
 yasinuslu:blaze-meta
 materialize:materialize
-useraccounts:materialize
 aldeed:autoform
 aldeed:collection2
 gildaspk:autoform-materialize
@@ -28,3 +27,7 @@ jeremy:geocomplete
 less
 houston:admin
 linto:jquery-ui
+accounts-facebook
+useraccounts:materialize
+accounts-ui
+service-configuration
