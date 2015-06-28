@@ -19,3 +19,17 @@ Template._header.rendered = function() {
 
   }.bind(this), 200);
 };
+
+Template._header.helpers({
+  notificationsCount: function() {
+    return Notifications.find({read: false}).count();
+  },
+  notifications: function() {
+    return Notifications.find({}, {sort: {createdAt: -1}});
+  }
+});
+
+Template._header.events({
+  'click #notifications-alert': function() { $('#notifications').openModal(); },
+  'click #close-notifications': function() { Meteor.call('setNotificationsAsRead'); }
+})

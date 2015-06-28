@@ -25,3 +25,7 @@ ProvidersController = AppController.extend({
     providers: Providers.find({})
   }
 });
+
+if (Meteor.isClient) {
+  Meteor.subscribe('notifications');
+}

@@ -29,5 +29,9 @@ Providers.attachSchema(new SimpleSchema({
   desc: {
     type: String,
     optional: true
+  },
+  services: {
+    type: [String],
+    optional: true
   }
 }));

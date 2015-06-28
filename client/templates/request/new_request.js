@@ -25,7 +25,7 @@ Template.newRequest.events({
       services.push($(this).val());
     });
 
-    Requests.insert({
+    var _id = Requests.insert({
       location: e.target.location.value,
       from: e.target.from.value,
       to: e.target.to.value,
@@ -35,6 +35,7 @@ Template.newRequest.events({
       budget_to: e.target.budget_to.value,
       services: services
     });
+    Meteor.call('notifiyRequet', _id);
   }
 })
 

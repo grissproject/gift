@@ -13,3 +13,11 @@ Meteor.publishComposite("providers", function() {
     }
   }
 });
+
+Meteor.publishComposite("notifications", function() {
+  return {
+    find: function() {
+      return Notifications.find({userId: this.userId});
+    }
+  }
+});
