@@ -27,6 +27,8 @@ Template.bidComments.events({
       bidId: e.target.bid_id.value,
       comments: e.target.comment.value
     });
+
+    Meteor.call('notifyComment', e.target.bid_id.value);
   }
 });
 

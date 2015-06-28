@@ -52,5 +52,29 @@ Meteor.methods({
       rqUserName: prov.name,
       read: false
     });
+  },
+  'notifyComment': function(id) {
+    bid = Bids.findOne({_id: id});
+    rq = Requests.findOne({_id: bid.requestId});
+    prov = Providers.findOne({_id: bid.providerId});
+
+    userId = rq.owner;
+    username = rq.username;
+    if (rq.owner == this.userId) {
+      userId = prov.owner;
+      username = prov.name;
+    }
+
+    Notifications.insert({
+      providerId: bid.providerId,
+      userId: userId,
+      userName: username,
+      requestId: rq._id,
+      requestDest: rq.location,
+      notificationType: 'comment',
+      rqUserId: prov.owner,
+      rqUserName: prov.name,
+      read: false
+    });
   }
 });
