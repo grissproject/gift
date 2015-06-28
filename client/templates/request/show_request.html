@@ -1,3 +1,33 @@
 <template name="showRequest">
-  {{ location }}
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-image">
+          <img src="/images/london.jpg">
+          <span class="card-title">{{ location }}</span>
+        </div>
+        <div class="card-content">
+          <p>
+            <span class="title">Location:</span> {{ location }} <br />
+            <span class="title">From:</span> {{ formatTime from }} <br />
+            <span class="title">To:</span> {{ formatTime to }} <br />
+            <span class="title">Adults:</span> {{ adults }} <br />
+            <span class="title">Childs:</span> {{ childs }} <br />
+            <span class="title">Budget from:</span> {{ budget_from }} &nbsp; - &nbsp; 
+            <span class="title">to:</span> {{ budget_to }} <br /> 
+            <span class="title">Services: </span> {{> showServices }}<br />
+          </p>
+        </div>
+        <div class="card-action">
+          <a href="#"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="showServices">
+  {{ #each services }}
+    {{this}}, 
+  {{/each}}
 </template>

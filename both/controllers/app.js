@@ -12,9 +12,9 @@ RequestsController = AppController.extend({
 });
 
 ShowRequestsController = AppController.extend({
-  waitOn: function() {
-    return this.subscribe('requests');
-  }
+  // waitOn: function() {
+  //   return this.subscribe('requests');
+  // }
 });
 
 ProvidersController = AppController.extend({

@@ -36,6 +36,7 @@ Template.newRequest.events({
       services: services
     });
     Meteor.call('notifiyRequet', _id);
+    Router.go('showRequest', {_id: _id});
   }
 })
 

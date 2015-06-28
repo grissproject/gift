@@ -43,7 +43,7 @@
     <div class="modal-content">
       <ul class="collection">
         {{#each notifications}}
-          <a href="{{ pathFor 'showRequest' requestId}}" class="notification-item collection-item {{#if read}} {{else}} red lighten-4 {{/if}}">
+          <a href="{{ pathFor 'showRequest' _id = requestId}}" class="notification-item collection-item {{#if read}} {{else}} red lighten-4 {{/if}}">
             {{rqUserName}} made a request for {{ getLocation this }}
           </a>
         {{/each}}
