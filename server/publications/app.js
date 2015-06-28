@@ -21,3 +21,11 @@ Meteor.publishComposite("notifications", function() {
     }
   }
 });
+
+Meteor.publishComposite("bids", function() {
+  return {
+    find: function() {
+      return Bids.find();
+    }
+  }
+});

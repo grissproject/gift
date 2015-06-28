@@ -39,12 +39,12 @@
     <li class="bold {{ isActiveRoute regex='dashboard' }}"><a href="{{ pathFor 'dashboard' }}" title="Dashboard"><i class="mdi-action-dashboard"></i> Dashboard</a></li>
   </ul>
 
-  <div id="notifications" class="modal">
+  <div id="notifications" class="modal modal-fixed-footer">
     <div class="modal-content">
       <ul class="collection">
         {{#each notifications}}
           <a href="{{ pathFor 'showRequest' _id = requestId}}" class="notification-item collection-item {{#if read}} {{else}} red lighten-4 {{/if}}">
-            {{rqUserName}} made a request for {{ getLocation this }}
+            {{rqUserName}} made a {{notificationType}} for {{ getLocation this }}
           </a>
         {{/each}}
       </ul>

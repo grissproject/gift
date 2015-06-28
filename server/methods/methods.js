@@ -22,7 +22,7 @@ Meteor.methods({
           userName: p.username,
           requestId: rq._id,
           requestDest: rq.location,
-          notificationType: 'Provider',
+          notificationType: 'request',
           rqUserId: rq.owner,
           rqUserName: username,
           read: false
@@ -35,5 +35,22 @@ Meteor.methods({
     _.each(nots, function(n) {
       Notifications.update(n._id, {$set: {read: true}});
     })
+  },
+  'notifyBid': function(id) {
+    bid = Bids.findOne({_id: id});
+    rq = Requests.findOne({_id: bid.requestId});
+    prov = Providers.findOne({_id: bid.providerId});
+
+    Notifications.insert({
+      providerId: bid.providerId,
+      userId: rq.owner,
+      userName: rq.username,
+      requestId: rq._id,
+      requestDest: rq.location,
+      notificationType: 'bid',
+      rqUserId: prov.owner,
+      rqUserName: prov.name,
+      read: false
+    });
   }
 });

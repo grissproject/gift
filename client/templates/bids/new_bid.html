@@ -1,0 +1,44 @@
+<template name="newBid">
+  <form>
+    <div class="new_bid">
+      <div class="row">
+        <div class="input-field col s12">
+          <p>
+            <input type="checkbox" id="w_flight" name="what[]" value="Flight" />
+            <label for="w_flight">Flight</label>
+          </p>
+          <p>
+            <input type="checkbox" id="w_hotel" name="what[]" checked="checked" value="Hotel" />
+            <label for="w_hotel">Hotel</label>
+          </p>
+          <p>
+            <input type="checkbox" id="w_transfer" name="what[]" checked="checked" value="Transfer" />
+            <label for="w_transfer" >Transfer</label>
+          </p>
+          <p>
+            <input type="checkbox" id="w_excursions" name="what[]" checked="checked" value="Excursions" />
+            <label for="w_excursions" >Excursions</label>
+          </p>
+        </div>
+
+        <div class="input-field col s12">
+          <input id="price" name="price" type="number" class="active">
+          <label for="price">Price</label>
+        </div>
+
+        <div class="input-field col s12">
+          <textarea id="desc" name="desc" class="materialize-textarea"></textarea>
+          <label for="desc">Comments</label>
+        </div>
+      </div>
+
+      <input type="hidden" name="requestId" value="{{requestId}}">
+      <div class="input-field col s12">Don't forget to give a lovely gift in case of winning!</div>
+      <button class="waves-effect waves-light btn">Send offer</button>
+
+      <div class="navfooter">
+        <a onclick="goPrev('new_bid', 'show_request');" class="waves-effect waves-light btn left"><i class="fa fa-angle-left"></i> Prev</a>
+      </div>
+    </div>
+  </form>
+</template>
