@@ -35,3 +35,7 @@ Router.route('requests/bids/:_id', {
   name: 'bidComments',
   data: function() { return Bids.findOne({_id: this.params._id}) }
 });
+
+Router.route('requests/index', {
+  name: 'requestsList'
+});
