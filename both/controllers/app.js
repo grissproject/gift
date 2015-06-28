@@ -31,4 +31,5 @@ if (Meteor.isClient) {
   Meteor.subscribe('requests');
   Meteor.subscribe('providers');
   Meteor.subscribe('bids');
+  Meteor.subscribe('bidcomments');
 }

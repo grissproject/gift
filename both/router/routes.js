@@ -30,3 +30,8 @@ Router.route('providers/new', {
   name: 'newProvider',
   controller: 'ProvidersController'
 });
+
+Router.route('requests/bids/:_id', {
+  name: 'bidComments',
+  data: function() { return Bids.findOne({_id: this.params._id}) }
+});

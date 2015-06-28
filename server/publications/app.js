@@ -29,3 +29,11 @@ Meteor.publishComposite("bids", function() {
     }
   }
 });
+
+Meteor.publishComposite("bidcomments", function() {
+  return {
+    find: function() {
+      return BidComments.find();
+    }
+  }
+});

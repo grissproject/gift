@@ -1,7 +1,7 @@
 <template name="showRequest">
   <div class="row">
     <div class="show_request">
-      <div class="col s12 m6">
+      <div class="col s12 m7">
         <div class="card">
           <div class="card-image">
             <img src="/images/london.jpg">
@@ -20,12 +20,20 @@
             </p>
           </div>
           <div class="card-action">
+            <div class="right">{{offersCount}} Offers</div>
             {{#if isProvider }}
               <a onclick="goNext('show_request', 'new_bid');">Send an offer</a>
             {{/if}}
           </div>
         </div>
       </div>
+
+      {{#if hasOffers}}
+      <h3>Offers:</h3>
+      {{#each offers}}
+        {{> showBid this }}
+      {{/each}}
+      {{/if}}
     </div>
   </div>
 
@@ -36,4 +44,56 @@
   {{ #each services }}
     {{this}}, 
   {{/each}}
+</template>
+
+<template name="showBid">
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">{{bidder}}</span>
+        <p><strong>Services: </strong> {{> showServices }}</p>
+        <p><strong>Price: </strong> {{ price }}</p>
+        <p>{{comments}}</p>
+      </div>
+      <div class="card-action">
+        <div class="right">{{commentsCount}} Comments</div>
+        <a href="{{pathFor 'bidComments' this}}"><i class="fa fa-comment"></i> Comments</a>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="bidComments">
+  <div class="row">
+    {{> showBid this }}
+
+    ({{this.requestId}})
+
+    {{#each comments}}
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-content">
+          <div><strong>{{ username }}</strong> on <strong>{{ formatTime createdAt }}</strong></div>
+          <p>{{this.comments}}</p>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+  <form>
+    <h3>Send Comment</h3>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="comment" name="comment" class="materialize-textarea"></textarea>
+        <input type="hidden" name="bid_id" value="{{ _id }}">
+        <label for="comment">Comments</label>
+      </div>
+      <button class="waves-effect waves-light btn">Comment</button>
+    </div>
+  </form>
+
+  <div class="navfooter">
+    <a href="{{pathFor 'showRequest' _id=this.requestId}}" class="waves-effect waves-light btn left"> <i class="fa fa-angle-left"></i> Prev</a>
+  </div>
 </template>
