@@ -1,5 +1,11 @@
 Template.newProvider.onRendered(function() {
   $('select').material_select();
+
+  this.autorun(function () {
+    if (GoogleMaps.loaded()) {
+      map = $("#location").geocomplete();
+    }
+  });
 });
 
 Template.newProvider.events({
@@ -17,5 +23,8 @@ Template.newProvider.events({
       desc: e.target.desc.value,
       services: services
     });
+
+    toast('Registration successfully! Thank you', 4000);
+    Router.go('/');
   }
 })

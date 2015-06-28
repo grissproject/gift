@@ -16,6 +16,7 @@
 
     <div class="when">
       <div class="row">
+        <h5>When?</h5>
         <div class="input-field col s6">
           <input id="from" name="from" type="date" placeholder="">
           <label for="from">From</label>
@@ -25,6 +26,7 @@
           <label for="to">To</label>
         </div>
 
+        <h5>Who?</h5>
         <div class="input-field col s6">
           <select id="adults" name="adults">
             <option value="1">1</option>
@@ -52,6 +54,7 @@
           <label for="childs">Childs</label>
         </div>
 
+        <h5>Your Budget</h5>
         <div class="col s12">
           <div class="input-field col s6">
           <input id="budget_from" name="budget_from" type="number" value="800" class="active">
@@ -72,6 +75,7 @@
 
     <div class="what">
       <div class="row">
+        <h5>What are you looking for?</h5>
         <div class="input-field col s12">
           <p>
             <input type="checkbox" id="w_flight" name="what[]" value="Flight" />
@@ -117,10 +121,10 @@
         </div>
       </div>
 
-      <button id="confirm" class="waves-effect waves-light btn">Confirm and send request</button>
+      <button id="confirm" class="waves-effect waves-light btn btn-lg">Confirm! Ask for cool offers</button>
 
       <div class="navfooter">
-        <a onclick="goPrev('resume', 'what');" class="waves-effect waves-light btn left"><i class="fa fa-angle-left"></i> Prev</a>
+        <a onclick="goPrev('resume', 'what');" class="waves-effect waves-light btn  left"><i class="fa fa-angle-left"></i> Prev</a>
       </div>
     </div>
 

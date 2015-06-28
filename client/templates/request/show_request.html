@@ -1,6 +1,5 @@
-<template name="showRequest">
-  <div class="row">
-    <div class="show_request">
+<template name="showRequestBasic">
+
       <div class="col s12 m7">
         <div class="card">
           <div class="card-image">
@@ -27,6 +26,13 @@
           </div>
         </div>
       </div>
+
+</template>
+
+<template name="showRequest">
+  <div class="row">
+    <div class="show_request">
+      {{>showRequestBasic}}
 
       {{#if hasOffers}}
       <h3>Offers:</h3>

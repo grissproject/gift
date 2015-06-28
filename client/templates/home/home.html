@@ -1,9 +1,14 @@
 <template name="home">
   <div class="template-home">
     
-    <a href="{{ pathFor 'newRequest' }}" class="waves-effect waves-light btn-large" style="width: 100%"><i class="material-icons left"></i> Find a lovely request</a>
+    <a href="{{ pathFor 'newRequest' }}" class="waves-effect waves-light btn-large" style="width: 100%"><i class="material-icons left"></i> Request lovely offers</a>
 
-    <a href="{{ pathFor 'newProvider' }}" class="waves-effect waves-light btn-large" style="width: 100%"><i class="material-icons left"></i> I am provider</a>
+    <h3>Recent requests</h3>
+    {{#each requests}}
+      {{> showRequestBasic}}
+    {{/each}}
+
+    <a href="{{ pathFor 'newProvider' }}" class="waves-effect waves-light btn-large" style="width: 100%"><i class="material-icons left"></i> I am provider and want to give gifts</a>
 
   </div>
 </template>
