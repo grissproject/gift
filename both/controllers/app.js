@@ -1,5 +1,5 @@
 AppController = RouteController.extend({
-  layoutTemplate: 'appLayout'
+  layoutTemplate: 'appLayout',
 });
 
 RequestsController = AppController.extend({
@@ -28,4 +28,6 @@ ProvidersController = AppController.extend({
 
 if (Meteor.isClient) {
   Meteor.subscribe('notifications');
+  Meteor.subscribe('requests');
+  Meteor.subscribe('providers');
 }

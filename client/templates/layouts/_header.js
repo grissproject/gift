@@ -26,10 +26,15 @@ Template._header.helpers({
   },
   notifications: function() {
     return Notifications.find({}, {sort: {createdAt: -1}});
+  },
+  getLocation: function(n) {
+    rq = Requests.findOne({_id: n.requestId});
+    return rq == undefined || rq.location == undefined ? 'everywhere' : rq.location;
   }
 });
 
 Template._header.events({
   'click #notifications-alert': function() { $('#notifications').openModal(); },
+  'click .notification-item':  function() { $('#notifications').closeModal(); Meteor.call('setNotificationsAsRead'); },
   'click #close-notifications': function() { Meteor.call('setNotificationsAsRead'); }
 })
