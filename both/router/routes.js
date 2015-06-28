@@ -39,3 +39,7 @@ Router.route('requests/bids/:_id', {
 Router.route('requests/index', {
   name: 'requestsList'
 });
+
+Router.route('config', {
+  name: 'config'
+});
